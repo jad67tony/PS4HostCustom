@@ -1,0 +1,29 @@
+<html>
+<head>
+<title></title>
+<link rel="icon" type="image/x-icon" href="favicon.ICO" />
+<meta charset="utf-8" />
+<link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="assets/css/rpi.css">
+<script src="assets/js/functions.js"></script>
+</head>
+<body>
+<script>
+function user_agent(){ let ua=navigator.userAgent,client=ua.substring(ua.indexOf("(")+1,ua.indexOf(") Apple")-5);
+return client;}   
+let defaultLangue;if(getCookie("language") === null) {createCookie("language", "french");defaultLangue = 0;}else{switch(readCookie("language")){case "french":defaultLangue=0;break;case "english":defaultLangue=1;break}}
+</script>
+<header id="header"><div id="content-title" class="content-title"></div></header>
+<div id="language" class="hidelanguage"></div>
+<div id="choicelangue"><button>Language</button></div>
+<div id="menurpi"></div>
+<script src="assets/lang/server.json"></script>
+<script src="assets/lang/rpi.json"></script>
+<script src="assets/bootstrap/jquery-3.3.1.min.js"></script>
+<script src="assets/bootstrap/popper.min.js"></script>
+<script src="assets/bootstrap/bootstrap.min.js"></script>
+<script src="assets/js/sha.js"></script>
+<script src="assets/js/rpi.js"></script>
+<script src="https://kit.fontawesome.com/5cea6bf66d.js" crossorigin="anonymous"></script>
+</body>
+</html>

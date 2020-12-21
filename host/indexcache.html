@@ -1,0 +1,480 @@
+<html manifest="offline.manifest">
+<head>
+    <title></title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="assets/css/colorpicker.css" type="text/css" />
+</head>
+<body>
+    <div id="imgback"></div>
+    <header>
+        <div id="info"></div>
+        <div id="textInfo" class="messagedefilant"></div>
+        <div id="userName"></div>
+        <div id="clock"></div>
+    </header>
+    <script>
+        let fwVersion = null;
+        let alertfirmware = false;
+        let nb = 0;
+        let cach = [];
+        function infoCache() {
+            cac = [ca];
+            for (let i = 0; i < cac.length; i++) {
+                cach[i] = JSON.parse(cac[i]);
+            }
+        }
+        function checkFw() {
+            let ua = navigator.userAgent;
+            fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
+            return fwVersion;
+        } //return fwVersion = "6.72";
+        function user_agent() {
+            let ua = navigator.userAgent,
+                client = ua.substring(ua.indexOf("(") + 1, ua.indexOf(") Apple") - 5);
+            return client;
+        }
+        if (checkFw() === "6.72" || checkFw() !== "9.99") {
+            window.applicationCache.onupdateready = function () {
+                window.applicationCache.swapCache();
+                overlay.style.display = "none";
+                message.innerHTML = '<div align="center" style="color:green">' + cach[0][defaultLangue].cachedsucces + "</div>";
+                setTimeout(function () {
+                    message.innerHTML = "";
+                    load_JB();
+                }, 1000);
+            };
+            window.applicationCache.onnoupdate = function () {
+                document.cookie = "spoof=no";
+                load_JB();
+            };
+            window.applicationCache.ondownloading = function () {
+                const message = document.getElementById("message");
+                const overlay = document.getElementById("cache-overlay");
+                const progress = document.getElementById("progress");
+                message.innerHTML = '<div class="green">' + cach[0][defaultLangue].goodfw + checkFw() + cach[0][defaultLangue].goodfw2 + "</div>";
+            };
+            window.applicationCache.onprogress = function (a) {
+                overlay.style.display = "block";
+                progress.innerHTML = '<div align="center" id="mybar"></div>';
+                let mybar = document.getElementById("mybar");
+                nb = Math.round(100 * (a.loaded / a.total));
+                mybar.style.width = nb + "%";
+                if (nb == 0) {
+                    mybar.innerHTML = "";
+                } else {
+                    mybar.innerHTML = nb + "%";
+                }
+            };
+            window.applicationCache.oncached = function () {
+                overlay.style.display = "none";
+                message.innerHTML = '<div align="center" style="color:green">' + cach[0][defaultLangue].cachedsucces + "</div>";
+                setTimeout(function () {
+                    message.innerHTML = "";
+                    load_JB();
+                }, 1000);
+            };
+        } else {
+            if (user_agent() === "PlayStation 4") alertfirmware = true;
+        }
+    </script>
+    <script src="assets/js/functions.js"></script>
+    <script>function print() { }</script>
+    <script src="common/exploit.js"></script>
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <script type="text/javascript" src="assets/js/jquery.js"></script>
+    <script type="text/javascript" src="assets/js/colorpicker.js"></script>
+    <div class="overlay" id="cache-overlay">
+        <div id="progress"></div>
+    </div>
+    <div id="curseur" class="infobubble"></div>
+    <div id="language" class="hidelanguage"></div>
+    <div id="message" class="message"></div>
+    <div id="menulist"></div>
+    <div id="cs-loader" class="cs-loader">
+        <div class="cs-loader-inner">
+            <label></label><label></label><label></label><label></label><label></label><label></label></div>
+    </div>
+    <div class="modal fade" id="paramsModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modaltitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="settings-modal-body">
+                    <label id="modallanguage" class="small"></label>
+                    <div class="input-group w-100 mb-1">
+                        <select class="custom-select" id="languageselection">
+                            <option value="english" selected="selected">English (US)</option>
+                            <option value="french">Français (France)‎</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button type="button" class="modalBtn" id="submitlanguage"></button>
+                        </div>
+                    </div>
+                    <label id="modalwave" class="small">Wave</label>
+                    <div class="input-group w-100 mb-1">
+                        <select class="custom-select" id="waveselection">
+                            <option value="on" selected="selected">ON</option>
+                            <option value="off">OFF‎</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button type="button" class="modalBtn" id="submitwave"></button>
+                        </div>
+                    </div>
+                    <div id="container-wave-custom"></div>
+                    <div class="container">
+                        <div class="row">
+                            <button id="btn-wave0" class="modalBtn col-sm" >Wave1</button>
+                            <div id="color-wave0" class="btn-color-show col-sm color-rad"></div>
+                            <script>
+                                $("#btn-wave0").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                        
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $("#color-wave0").css("backgroundColor", hex);
+                                        cookieWave(`#${hex}`, 0);
+                                    }
+                                })
+                            </script>
+                            <button id="btn-wave1" class="modalBtn col-sm">Wave2</button>
+                            <div id="color-wave1" class="btn-color-show col-sm color-rad"></div>
+                            <script>
+                                $("#btn-wave1").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $("#color-wave1").css("backgroundColor", hex);
+                                        cookieWave(`#${hex}`, 1);
+                                    }
+                                })
+                            </script>
+                            <button id="btn-wave2" class="modalBtn col-sm">Wave3</button>
+                            <div id="color-wave2" class="btn-color-show col-sm color-rad"></div>
+                            <script>
+                                $("#btn-wave2").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $("#color-wave2").css("backgroundColor", hex);
+                                        cookieWave(`#${hex}`, 2);
+                                    }
+                                })
+                            </script>
+                            <button id="btn-wave3" class="modalBtn col-sm">Wave4</button>
+                            <div id="color-wave3" class="btn-color-show col-sm color-rad"></div>
+                            <script>
+                                $("#btn-wave3").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $("#color-wave3").css("backgroundColor", hex);
+                                        cookieWave(`#${hex}`, 3);
+                                    }
+                                })
+                            </script>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <input id="range0" class="range" type="range" min="0" max="100" value="5" step="1" />
+                                <output id="rangevalue0" class="outrange"></output>
+                            </div>
+                            <div class="col-sm">
+                                <input id="range1" class="range" type="range" min="0" max="100" value="5" step="1" />
+                                <output id="rangevalue1" class="outrange"></output>
+                            </div>
+                            <div class="col-sm">
+                                <input id="range2" class="range" type="range" min="0" max="100" value="5" step="1" />
+                                <output id="rangevalue2" class="outrange"></output>
+                            </div>
+                            <div class="col-sm">
+                                <input id="range3" class="range" type="range" min="0" max="100" value="5" step="1" />
+                                <output id="rangevalue3" class="outrange"></output>
+                            </div>
+                        </div>
+                    </div>
+                    <label id="modalbackground" class="small"></label>
+                    <div class="input-group w-100 mb-1">
+                        <input type="url" class="form-control" id="background-image-url"
+                            placeholder="http://IP.Serveur.node.PC:9999/background/your_Img">
+                        <div class="input-group-append">
+                            <button type="button" class="modalBtn" id="submitbackground"></button>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <button id="btn-background" class="modalBtn col-sm">Background</button>
+                            <div id="colorBackground" class="btn-color-show col-sm"></div>
+                            <script>
+                                $("#btn-background").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $("body").css("backgroundColor", "#" + hex);
+                                        $("#colorBackground").css("backgroundColor", "#" + hex);
+                                        cookieBackground("#" + hex);
+                                    }
+                                });
+                            </script>
+                            <button id="btn-btn1" class="modalBtn col-sm">Button1</button>
+                            <div id="btn1-cust" class="btn-color-show col-sm"></div>
+                            <script>
+                                $("#btn-btn1").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $(".btn-custom, .btn").css("backgroundColor", "#" + hex);
+                                        $("#btn1-cust").css("backgroundColor", "#" + hex);
+                                        cookieBtn("#" + hex);
+                                    }
+                                })
+                            </script>
+                            <button id="btn-btn1-transparent" class="modalBtn col-sm"
+                                onclick="cookieBtn1Transparent()">Transparent</button>
+                            <div id="btn1-cust-transparent" class="btn-color-show col-sm"></div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <button id="btn-footer" class="modalBtn col-sm">footer</button>
+                            <div id="colorFooter" class="btn-color-show col-sm"></div>
+                            <script>
+                                $("#btn-footer").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $("footer").css("backgroundColor", "#" + hex);
+                                        $("#colorFooter").css("backgroundColor", "#" + hex);
+                                        cookieFooter("#" + hex);
+                                    }
+                                })
+                            </script>
+                            <button id="btn-btn2" class="modalBtn col-sm">Button2</button>
+                            <div id="btn2-cust" class="btn-color-show col-sm"></div>
+                            <script>
+                                $("#btn-btn2").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $("#btn2-cust").css("backgroundColor", "#" + hex);
+                                        cookieBtnHover("#" + hex);
+                                    }
+                                })
+                            </script>
+                            <button id="btn-btn2-transparent" class="modalBtn col-sm"
+                                onclick="cookieBtn2Transparent()">Transparent</button>
+                            <div id="btn2-cust-transparent" class="btn-color-show col-sm"></div>
+
+
+                        </div>
+                    </div>
+                    <div class="container">
+                        <div class="row">
+                            <button id="btn-btn3" class="modalBtn col-sm">Menu Text</button>
+                            <div id="btn3-cust" class="btn-color-show col-sm"></div>
+                            <script>
+                                $("#btn-btn3").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $("#btn3-cust").css("backgroundColor", "#" + hex);
+                                        cookieMenuText("#" + hex);
+                                    }
+                                })
+                            </script>
+                            <button id="btn-btn4" class="modalBtn col-sm">Link Btn</button>
+                            <div id="btn4-cust" class="btn-color-show col-sm"></div>
+                            <script>
+                                $("#btn-btn4").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $("#btn4-cust").css("backgroundColor", "#" + hex);
+                                        cookieLinkBtn("#" + hex);
+                                    }
+                                })
+                            </script>
+                            <button id="btn-btn5" class="modalBtn col-sm">Footer Text</button>
+                            <div id="btn5-cust" class="btn-color-show col-sm"></div>
+                            <script>
+                                $("#btn-btn5").ColorPicker({
+                                    onShow: function (colpkr) {
+                                        $(colpkr).fadeIn(500);
+                                        return false;
+                                    },
+                                    onHide: function (colpkr) {
+                                        $(colpkr).fadeOut(500);
+                                        return false;
+                                    },
+                                    onChange: function (hsb, hex, rgb) {
+                                        $("#btn5-cust").css("backgroundColor", "#" + hex);
+                                        cookieFooterText("#" + hex);
+                                    }
+                                })
+                            </script>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="modalquit" class="modalBtn" data-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <footer >
+        <div class="container-fluid" id="footer">
+            <div class="row">
+                <div class="col-4">
+                    <div id="fanprogress" ></div>
+                </div>
+                <div class="col-2" >
+                    <div id="boxip" class="boxip" ></div>
+                </div>
+                <div id="btn-switch" class="col-4">
+                    <div class="row">
+                        <div class="col-2">
+                            <div class="info-switch">FTP :</div>
+                            <label class="switch"><input id="ftp" type="checkbox"><span id="btn-switch-ftp"
+                                    class="slider-red round"></span></label>
+                        </div>
+                        <div class="col-2">
+                            <div class="info-switch">Infos :</div>
+                            <label class="switch"><input id="bubble" type="checkbox"><span id="btn-switch-bubble"
+                                    class="slider-red round"></span></label>
+                        </div>
+                        <div class="col-2">
+                            <div class="info-switch">Hen :</div><label class="switch"><input id="hen300"
+                                    type="checkbox"><span id="btn-switch-hen300"
+                                    class="slider-red round"></span></label>
+                        </div>
+                        <div class="col-2">
+                            <div class="info-switch">Mira :</div><label class="switch"><input id="noofficial"
+                                    type="checkbox"><span id="btn-switch-noofficial"
+                                    class="slider-red round"></span></label>
+                        </div>
+                        <div class="col-2">
+                            <div class="info-switch">Fan :</div><label class="switch"><input id="fancontrol"
+                                    type="checkbox"><span id="btn-switch-fancontrol"
+                                    class="slider-red round"></span></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <div id="firmware"></div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <div id="infoBubble" class="infobubble" style="border:1px solid #fff"></div>
+    <div id="container-wave"></div>
+    <script src="assets/lang/ca.json"></script>
+    <script>
+        let defaultLangue;
+        choiceLanguage();
+    </script>
+    <script>
+        infoCache();
+    </script>
+    <script src="assets/lang/server.json"></script>
+    <script src="assets/lang/scrolling.json"></script>
+    <script src="assets/lang/payload.json"></script>
+    <script src="assets/lang/home.json"></script>
+    <script src="assets/lang/rpi.json"></script>
+    <script src="assets/bootstrap/jquery-3.3.1.min.js"></script>
+    <script src="assets/bootstrap/popper.min.js"></script>
+    <script src="assets/bootstrap/bootstrap.min.js"></script>
+    <script src="assets/js/sha.js"></script>
+    <script src="assets/js/style.js"></script>
+    <script src="https://kit.fontawesome.com/5cea6bf66d.js" crossorigin="anonymous"></script>
+</body>
+
+</html>
+<!--
+Copyright (c) 2018-2020 Jad67tony, https://github.com/Jad67tony/PS4HostCS
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->
