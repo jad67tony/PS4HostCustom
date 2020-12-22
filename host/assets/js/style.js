@@ -2,25 +2,16 @@ let level = 0;
 let version = "3.0.7";
 let tempDefault = 78;
 let exploit = null;
-let infobubble = document.getElementById("infobubble");
-let menuList = document.getElementById("menulist");
-let infohen = document.getElementById("infohen");
-const boxip = document.getElementById("boxip");
-const title = document.getElementsByTagName("title");
-const csLoader = document.getElementById("cs-loader");
-const firmware = document.getElementById("firmware");
-const displayLangue = document.getElementById("language");
-const choiceLang = document.getElementById("choicelangue");
-const overlay = document.getElementById("cache-overlay");
-/****************************************************************/
 /***********************Jailbreak***************************/
 function load_JB() {
   exploit = "jailbreak";
-  let func = JB("jb");
+  let func = JB("jbmin");
   newScript(func);
 }
 /************************Title and build definition**********************/
 function loadHTML() {
+  const menuList = document.getElementById("menulist");
+  const title = document.getElementsByTagName("title");
   if (menuList) {
     title[0].innerHTML =
       "PS4HostCS" +
@@ -32,13 +23,9 @@ function loadHTML() {
       home[0][defaultLangue].compagnie;
     setInnerHTML(menuList, buildHTML());
   }
-}
-let scrollings = [];
-scrolling = [scrolls];
-for (let i = 0; i < scrolling.length; i++) {
-  scrollings[i] = JSON.parse(scrolling[i]);
-}
-let payloads = [];
+}/*******************language array filling*************************** */
+
+let payloads = [], scrollings = [], home = [];
 pl = [
   pls,
   miraoff,
@@ -69,16 +56,19 @@ pl = [
 for (let i = 0; i < pl.length; i++) {
   payloads[i] = JSON.parse(pl[i]);
 }
-let home = [];
+scrolling = [scrolls];
+for (let i = 0; i < scrolling.length; i++) {
+  scrollings[i] = JSON.parse(scrolling[i]);
+}
 datas = [data];
 for (let i = 0; i < datas.length; i++) {
   home[i] = JSON.parse(datas[i]);
 }
-
-
+/**********************Recept notify payload********************** */
 function reception() {
+  const csLoader = document.getElementById("cs-loader");
   setInnerText(message, home[0][defaultLangue].injectwell);
-  displayBlock(csLoader );
+  displayBlock(csLoader);
   setTimeout(function () {
     setInnerText(message, home[0][defaultLangue].start_pl);
     setTimeout(function () {
@@ -87,7 +77,6 @@ function reception() {
       setInnerText(message, "");
     }, 3000);
   }, 3000);
-
 }
 
 /**********************Request for IP*************************************/
@@ -96,7 +85,7 @@ function requestIp() {
     req.forEach((key) => {
       for (const property in key) {
         let tab = [property, key[property]];
-       if (property == "PS4") {
+        if (property == "PS4") {
           getCookie("PS4") === null
             ? createCookie("PS4", JSON.stringify(tab))
             : modifyCookie("PS4", JSON.stringify(tab));
@@ -114,6 +103,7 @@ function requestIp() {
 }
 /**********************Display IP Online*************************************/
 function displayIpOnline() {
+  const boxip = document.getElementById("boxip");
   let ps4 = JSON.parse(getCookie("PS4"));
   let lan = JSON.parse(getCookie("LAN"));
   addInnerHTML(
@@ -127,6 +117,7 @@ function displayIpOnline() {
 }
 /**********************Display IP Offline*************************************/
 function displayIpOffline() {
+  const boxip = document.getElementById("boxip");
   if (getCookie("PS4") != null) {
     let ps4 = JSON.parse(getCookie("PS4"));
     addInnerHTML(
@@ -144,32 +135,11 @@ function displayIpOffline() {
     );
   }
 }
-/***********************Firmware not compatible***********************/
-if (alertfirmware === true) {
-    if (document.getElementById("menulist") != null) {
-      displayBlock(overlay);
-      displayNone(menuList);
-      setInnerHTML(
-        message,
-        '<div class="red">' +
-          home[0][defaultLangue].badFw +
-          checkFw() +
-          home[0][defaultLangue].badFw2 +
-          "</div>"
-      );
-      setTimeout(function () {
-        displayNone(overlay);
-        setInnerHTML(
-          message,
-          '<div class="red">' +
-            home[0][defaultLangue].desactivateHost +
-            "</div>"
-        );
-      }, 4000);
-    }
-}
+
 /**************************Injection completed*************************/
 function finished() {
+  const firmware = document.getElementById("firmware");
+  const csLoader = document.getElementById("cs-loader");
   switch (exploit) {
     case "jailbreak":
       if (main_ret == 179 || main_ret == 0) {
@@ -180,7 +150,7 @@ function finished() {
           firmware.innerHTML +=
             '<div class="lan">Jailbreak:<span class="green"> OK</span></div>';
         exploit = null;
-        autoLoad();
+        //autoLoad();
       } else {
         setInnerText(message, home[0][defaultLangue].jbfailed);
         firmware.innerHTML +=
@@ -196,10 +166,10 @@ function finished() {
       document.getElementById(
         "ipps4"
       ).innerHTML = `<div class="lan">FTP : <span class="green">Actif<br></span>${ps4[0]} : ${ps4[1]}:1337 </div>`;
-      setTimeout(function (){
+      setTimeout(function () {
         setInnerText(message, home[0][defaultLangue].ftp);
-      },500);
-      
+      }, 500);
+
       break;
     case "installFix":
       setInnerText(message, home[0][defaultLangue].installfix);
@@ -215,22 +185,23 @@ function finished() {
       break;
     case "binloader":
       setInnerText(message, home[0][defaultLangue].wait_pl_binloader);
-    break;
+      break;
     case "DumperKernel":
-    setInnerText(message, home[0][defaultLangue].dumperkernel);
-    displayBlock(csLoader );
-    setTimeout(function(){
-      setInnerText(message, "");
-      displayNone(csLoader );
-    },1000);
-    break;
+      setInnerText(message, home[0][defaultLangue].dumperkernel);
+      displayBlock(csLoader);
+      setTimeout(function () {
+        setInnerText(message, "");
+        displayNone(csLoader);
+      }, 1000);
+      break;
     default:
       reception(exploit);
-    break;
+      break;
   }
 }
 /***********************Binloader***************************/
 function load_binloader() {
+  const csLoader = document.getElementById("cs-loader");
   if (exploit === null) {
     exploit = "binloader";
     displayBlock(csLoader);
@@ -252,20 +223,19 @@ function load_binloader() {
 }
 /****************************Firmware display****************** */
 function displayFirmware() {
-  if (checkFw() === "9.99") {
-    setInnerHTML(
-      firmware,
-      '<span class="firmware">Spoof: ' + checkFw() + "</span>"
-    );
-    firmware.innerHTML +=
-      '<div class="lan">Jailbreak:<span class="green"> OK</span></div>';
-  } else
-    setInnerHTML(
-      firmware,
-      '<span class="firmware">Firmware:' + checkFw() + "</span>"
-    );
+  const firmware = document.getElementById("firmware");
+  checkFw() === "9.99"
+    ? (setInnerHTML(
+        firmware,
+        '<span class="firmware">Spoof: ' + checkFw() + "</span>"
+      ),
+      (firmware.innerHTML +=
+        '<div class="lan">Jailbreak:<span class="green"> OK</span></div>'))
+    : setInnerHTML(
+        firmware,
+        '<span class="firmware">Firmware: ' + checkFw() + "</span>"
+      );
 }
-
 
 /*******************Info bubble ********************************* */
 function GetId(id) {
@@ -326,23 +296,20 @@ function display_bubble() {
   }
 }
 /****************************Autoload***************************** */
-function autoLoad() {
-  let tabCookie = ["newhenvtx", "official", "fancontrol"],
+/*function autoLoad() {
+  let tabCookie = ["Newhenvtx", "Official", "Fancontrol"],
     next = false;
   for (let i = 0; i < tabCookie.length; i++) {
     if (getCookie(tabCookie[i]) === "active") {
-      if (next === false) {
-        loadPayload(tabCookie[i]);
-        next = true;
-      } else {
-        setTimeout(function () {
-          loadPayload(tabCookie[i]);
-        }, 10000);
-      }
+      next === false
+        ? (loadPayload(tabCookie[i]), (next = true))
+        : setTimeout(function () {
+            loadPayload(tabCookie[i]);
+          }, 10000);
     }
   }
-}
-/**********************Display button autoload********************** */
+}*/
+/**********************Effect button********************** */
 function displaySwitch(id) {
   let btnSwitch = document.getElementById(`btn-switch-${id}`);
   getCookie(id) === "active"
@@ -354,7 +321,7 @@ function displaySwitch(id) {
       btnSwitch.classList.add("slider-red"));
   if (id === "bubble") display_bubble();
 }
-
+/**********************Button selector********************** */
 function selectorSwitch(id) {
   if (getCookie(id) === null) createCookie(id, "noactive");
   getCookie(id) === "noactive"
@@ -463,63 +430,9 @@ function buildHTML() {
     "</a></li></ul></li>";
   return buildHTML;
 }
-function showWave(id, type) {
-  let buildWave =
-    '<svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">' +
-    "<defs>" +
-    '<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />' +
-    "</defs>" +
-    '<g class="parallax">' +
-    `<use id="${id}0" class="${type}" style="opacity:${localStorage.getItem(
-      `${id}0opac`
-    )}" xlink:href="#gentle-wave" x="48" y="0" fill=` +
-    localStorage.getItem("colorWave0") +
-    " />" +
-    `<use id="${id}1" class="${type}" style="opacity:${localStorage.getItem(
-      `${id}1opac`
-    )}" xlink:href="#gentle-wave" x="48" y="3" fill=` +
-    localStorage.getItem("colorWave1") +
-    " />" +
-    `<use id="${id}2" class="${type}" style="opacity:${localStorage.getItem(
-      `${id}2opac`
-    )}" xlink:href="#gentle-wave" x="48" y="5" fill=` +
-    localStorage.getItem("colorWave2") +
-    " />" +
-    `<use id="${id}3" class="${type}" style="opacity:${localStorage.getItem(
-      `${id}3opac`
-    )}" xlink:href="#gentle-wave" x="48" y="7" fill=` +
-    localStorage.getItem("colorWave3") +
-    " />" +
-    "</g>" +
-    "</svg>";
-  return buildWave;
-}
-
-function showBackground() {
-  let element = document.createElement("div");
-  element.innerHTML = '<div id="imgback"></div>';
-  return element;
-}
-function showModal() {
-  let modalTitle = document.getElementById("modaltitle");
-  let modalLanguage = document.getElementById("modallanguage");
-  let submitLanguage = document.getElementById("submitlanguage");
-  let submitWave = document.getElementById("submitwave");
-  let modalBackground = document.getElementById("modalbackground");
-  let submitBackground = document.getElementById("submitbackground");
-  let modalQuit = document.getElementById("modalquit");
-  modalTitle.innerText = home[0][defaultLangue].modaltitle;
-  modalLanguage.innerText = home[0][defaultLangue].modallangue;
-  submitLanguage.innerText = home[0][defaultLangue].submitlanguage;
-  submitWave.innerText = home[0][defaultLangue].submitwave;
-  modalBackground.innerText = home[0][defaultLangue].modalbackground;
-  submitBackground.innerText = home[0][defaultLangue].submitbackground;
-  modalQuit.innerText = home[0][defaultLangue].modalquit;
-  $("#paramsModal").modal("toggle");
-}
-
+/************************Scrolling message************************/
 function marqueelike() {
-  $(".messagedefilant").each(function () {
+  $(".scrollingMessage").each(function () {
     var texte = $(this).html();
     $(this).html("<div><span>" + texte + "</span></div>");
   });
@@ -556,6 +469,63 @@ function startTime() {
   today = today.split("G");
   document.getElementById("clock").innerHTML = today[0];
 }
+/************************Display wave************************/
+function showWave(id, type) {
+  let buildWave =
+    '<svg class="waves" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">' +
+    "<defs>" +
+    '<path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />' +
+    "</defs>" +
+    '<g class="parallax">' +
+    `<use id="${id}0" class="${type}" style="opacity:${localStorage.getItem(
+      `${id}0opac`
+    )}" xlink:href="#gentle-wave" x="48" y="0" fill=` +
+    localStorage.getItem("colorWave0") +
+    " />" +
+    `<use id="${id}1" class="${type}" style="opacity:${localStorage.getItem(
+      `${id}1opac`
+    )}" xlink:href="#gentle-wave" x="48" y="3" fill=` +
+    localStorage.getItem("colorWave1") +
+    " />" +
+    `<use id="${id}2" class="${type}" style="opacity:${localStorage.getItem(
+      `${id}2opac`
+    )}" xlink:href="#gentle-wave" x="48" y="5" fill=` +
+    localStorage.getItem("colorWave2") +
+    " />" +
+    `<use id="${id}3" class="${type}" style="opacity:${localStorage.getItem(
+      `${id}3opac`
+    )}" xlink:href="#gentle-wave" x="48" y="7" fill=` +
+    localStorage.getItem("colorWave3") +
+    " />" +
+    "</g>" +
+    "</svg>";
+  return buildWave;
+}
+/************************Display background************************/
+function showBackground() {
+  let element = document.createElement("div");
+  element.innerHTML = '<div id="imgback"></div>';
+  return element;
+}
+/************************Display modal************************/
+function showModal() {
+  let modalTitle = document.getElementById("modaltitle");
+  let modalLanguage = document.getElementById("modallanguage");
+  let submitLanguage = document.getElementById("submitlanguage");
+  let submitWave = document.getElementById("submitwave");
+  let modalBackground = document.getElementById("modalbackground");
+  let submitBackground = document.getElementById("submitbackground");
+  let modalQuit = document.getElementById("modalquit");
+  modalTitle.innerText = home[0][defaultLangue].modaltitle;
+  modalLanguage.innerText = home[0][defaultLangue].modallangue;
+  submitLanguage.innerText = home[0][defaultLangue].submitlanguage;
+  submitWave.innerText = home[0][defaultLangue].submitwave;
+  modalBackground.innerText = home[0][defaultLangue].modalbackground;
+  submitBackground.innerText = home[0][defaultLangue].submitbackground;
+  modalQuit.innerText = home[0][defaultLangue].modalquit;
+  $("#paramsModal").modal("toggle");
+}
+
 /************************Change Color Btn************************/
 function selectorColorBtn() {
   let userSelection = document.getElementsByClassName("custom-btn btn");
@@ -713,7 +683,7 @@ function selectOpacityWave() {
     changeOpacityWave(elemOpacityWaveCustom, elemOpacityWave);
   }
 }
-
+/************************Display fan************************/
 function displayFan() {
   let fanProgress = document.getElementById("fanprogress");
 
@@ -730,7 +700,7 @@ function displayFan() {
     `color:${localStorage.getItem("footerColor")}`
   );
 }
-
+/************************Select menu color************************/
 function selectorMenuText() {
   let menuLink = document.querySelectorAll('a[class="deroulant"]');
 
@@ -745,6 +715,7 @@ function cookieMenuText(hex) {
   localStorage.setItem("menuColor", hex);
   selectorMenuText();
 }
+/************************Select link btn color************************/
 function selectorLinkBtn() {
   let linkBtn = document.querySelectorAll('a[class="custom-btn btn"]');
   for (let i = 0; i < linkBtn.length; ++i) {
@@ -758,6 +729,7 @@ function cookieLinkBtn(hex) {
   localStorage.setItem("btnLinkColor", hex);
   selectorLinkBtn();
 }
+/************************Select footer color************************/
 function selectorFooterText() {
   let footerColor = document.getElementById("footer");
   let submitFan = document.getElementById("submitfan");
@@ -783,7 +755,30 @@ $(document).ready(function () {
   requestIp();
   createTempDefault(tempDefault);
   displayFirmware();
-
+/***********************Firmware not compatible***********************/
+if (alertfirmware === true) {
+  const menuList = document.getElementById("menulist");
+  const overlay = document.getElementById("cache-overlay");
+  if (menuList != null) {
+    displayBlock(overlay);
+    displayNone(menuList);
+    setInnerHTML(
+      message,
+      '<div class="red">' +
+        home[0][defaultLangue].badFw +
+        checkFw() +
+        home[0][defaultLangue].badFw2 +
+        "</div>"
+    );
+    setTimeout(function () {
+      displayNone(overlay);
+      setInnerHTML(
+        message,
+        '<div class="red">' + home[0][defaultLangue].desactivateHost + "</div>"
+      );
+    }, 4000);
+  }
+}
   /************************Button parameter************************/
   onkeydown = function (e) {
     if (e.key === "!") {
@@ -851,7 +846,7 @@ $(document).ready(function () {
     : $(".btn").css("backgroundColor", localStorage.getItem("btnColorHover"));
   selectorColorBtn();
 
-  /************************Default and selector background************************/
+  /************************Selector background************************/
 
   document.getElementById("inputBackground").innerHTML =
     '<input type="url" class="form-control" id="background-image-url" placeholder="' +
@@ -859,16 +854,16 @@ $(document).ready(function () {
     '">' +
     '<div class="input-group-append">' +
     '<button type="button" class="modalBtn" id="submitbackground"></button></div>';
-
+/************************Default and modify background************************/
+  if (localStorage.getItem("backgroundurl") === null) {
+      localStorage.setItem("backgroundurl", `background/image.jpg`);
+      $("#imgback").css(
+        "background-image",
+        `url(${localStorage.getItem("backgroundurl")})`
+      );
+    }
   if (localStorage.getItem("backgroundurl") === "") {
     localStorage.setItem("backgroundurl", "");
-    $("#imgback").css(
-      "background-image",
-      `url(${localStorage.getItem("backgroundurl")})`
-    );
-  }
-  if (localStorage.getItem("backgroundurl") === null) {
-    localStorage.setItem("backgroundurl", `background/image.jpg`);
     $("#imgback").css(
       "background-image",
       `url(${localStorage.getItem("backgroundurl")})`

@@ -13,13 +13,11 @@ function choiceLanguage() {
     }
   }
 }
-
-function JB(x) {
-  return "jb/" + x + ".js";
-}
-
 function SC(x) {
   return '<script src="' + x + '.js"></scr' + "ipt>";
+}
+function JB(x) {
+  return "jb/" + x + ".js";
 }
 
 function BINLOADER(x) {
@@ -186,7 +184,6 @@ function loadMira(mira) {
   newScript(func1);
   newScript(func2);
 }
-
 /***********************Loader Payload*******************/
 function loadPayload(payload) {
   exploit = payload;
