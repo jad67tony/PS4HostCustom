@@ -14,10 +14,10 @@
     <div id="imgback"></div>
     <header>
         <div id="header">
-        <div id="info" ></div>
-        <div id="textInfo" class="scrollingMessage"></div>
-        <div id="clock"></div>
-    </div>
+            <div id="info"></div>
+            <div id="textInfo" class="scrollingMessage"></div>
+            <div id="clock"></div>
+        </div>
     </header>
 
     <script>
@@ -26,9 +26,9 @@
         function checkFw() {
             let ua = navigator.userAgent;
             fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
-           return fwVersion;
-           //return fwVersion = "7.02";
-        } 
+            return fwVersion;
+            //return fwVersion = "7.02";
+        }
         function user_agent() {
             let ua = navigator.userAgent,
                 client = ua.substring(ua.indexOf("(") + 1, ua.indexOf(") Apple") - 5);
@@ -36,13 +36,10 @@
         }
         if (checkFw() != "6.72" && checkFw() != "9.99") if (user_agent() === "PlayStation 4") alertfirmware = true;
     </script>
-    
+
     <script src="assets/js/functions.min.js"></script>
     <script type="text/javascript" src="assets/js/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/colorpicker.min.js"></script>
-    <div class="overlay" id="cache-overlay">
-        <div id="progress"></div>
-    </div>
     <div id="language" class="hidelanguage"></div>
     <div id="message" class="message"></div>
     <div id="menulist"></div>
@@ -51,6 +48,7 @@
             <label></label><label></label><label></label><label></label><label></label><label></label>
         </div>
     </div>
+
     <div class="modal fade" id="paramsModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -61,26 +59,46 @@
                     </button>
                 </div>
                 <div class="modal-body" id="settings-modal-body">
-                    <label id="modallanguage" class="small"></label>
-                    <div class="input-group w-100 mb-1">
-                        <select class="custom-select" id="languageselection">
-                            <option value="english" selected="selected">English (US)</option>
-                            <option value="french">Français (France)‎</option>
-                        </select>
-                        <div class="input-group-append">
-                            <button type="button" class="modalBtn" id="submitlanguage"></button>
+                    <div class="row">
+                        <div class="col-4">
+                            <label id="modallanguage" class="small"></label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="languageselection">
+                                    <option value="english" selected="selected">English (US)</option>
+                                    <option value="french">Français (France)‎</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button id="submitlanguage" class="input-group-text"
+                                        for="languageselection"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label id="modaljb" class="small"></label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="jbselection">
+                                    <option value="Sleirsgoevy" selected="selected">Sleirsgoevy</option>
+                                    <option value="Darkmoddervc">Darkmoddervc</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button id="submitjb" class="input-group-text" for="jbselection"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label id="modalwave" class="small">Wave</label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="waveselection">
+                                    <option value="on" selected="selected">ON</option>
+                                    <option value="off">OFF‎</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button id="submitwave" class="input-group-text" for="waveselection"></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <label id="modalwave" class="small">Wave</label>
-                    <div class="input-group w-100 mb-1">
-                        <select class="custom-select" id="waveselection">
-                            <option value="on" selected="selected">ON</option>
-                            <option value="off">OFF‎</option>
-                        </select>
-                        <div class="input-group-append">
-                            <button type="button" class="modalBtn" id="submitwave"></button>
-                        </div>
-                    </div>
+
                     <div id="container-wave-custom"></div>
                     <div class="container">
                         <div class="row">
@@ -338,6 +356,9 @@
             </div>
         </div>
     </div>
+    <div id="loader-jb">
+        <div class="box boxload"></div>
+    </div>
     <hr>
     <footer>
         <div class="container-fluid" id="footer">
@@ -350,34 +371,29 @@
                 </div>
                 <div id="btn-switch" class="col-4">
                     <div class="row">
-                        <div class="col-2">
+                        <div class="col-3">
                             <div class="info-switch">FTP :</div>
                             <label class="switch"><input id="ftp" type="checkbox"><span id="btn-switch-ftp"
                                     class="slider-red round"></span></label>
                         </div>
-                        <div class="col-2">
+                        <div class="col-3">
                             <div class="info-switch">Infos :</div>
                             <label class="switch"><input id="bubble" type="checkbox"><span id="btn-switch-bubble"
                                     class="slider-red round"></span></label>
                         </div>
-                        <div class="col-2">
-                            <!--<div class="info-switch">Hen :</div><label class="switch"><input id="hen300"
-                                    type="checkbox"><span id="btn-switch-hen300"
-                                    class="slider-red round"></span></label>-->
+                        <div class="col-3 text-center">
+                            <div class="info-exploit">Exploit :</div>
+                            <div id="exploit" ></div>
                         </div>
-                        <div class="col-2">
-                            <!--<div class="info-switch">Mira :</div><label class="switch"><input id="noofficial"
-                                    type="checkbox"><span id="btn-switch-noofficial"
-                                    class="slider-red round"></span></label>-->
+                        <div class="col-3 text-center">
+                            <div class="info-jb">Jailbreak :</div>
+                            <div id="jailbreak" ></div>
                         </div>
-                        <div class="col-2">
-                            <!--<div class="info-switch">Fan :</div><label class="switch"><input id="fancontrol"
-                                    type="checkbox"><span id="btn-switch-fancontrol"
-                                    class="slider-red round"></span></label>-->
-                        </div>
+
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-2 text-center">
+                    <div class="info-jb">Firmware :</div>
                     <div id="firmware"></div>
                 </div>
             </div>
@@ -392,12 +408,10 @@
     <script src="assets/lang/payload.json"></script>
     <script src="assets/lang/home.json"></script>
     <script src="assets/js/style.min.js"></script>
-     <script>if (checkFw() === "6.72" || checkFw() === "9.99") load_JB();</script>
     <script src="assets/bootstrap/jquery-3.3.1.min.js"></script>
     <script src="assets/bootstrap/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/5cea6bf66d.js" crossorigin="anonymous"></script>
-   
-    
+    <script>if (checkFw() === "6.72" || checkFw() === "9.99") load_JB();</script>
+
 </body>
 
 </html>

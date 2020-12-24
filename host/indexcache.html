@@ -4,10 +4,9 @@
     <meta charset="utf-8" />
     <script>function print() { }</script>
     <script src="common/exploit.js"></script>
-    <link rel="stylesheet" href="assets/css/colorpicker.css" type="text/css" />
-    <link rel="stylesheet" href="assets/css/colorpicker.css" type="text/css" />
+    <link rel="stylesheet" href="assets/css/colorpicker.min.css" type="text/css" />
     <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/default.css">
+    <link rel="stylesheet" href="assets/css/default.min.css">
 </head>
 <body>
     <div id="imgback"></div>
@@ -27,7 +26,8 @@
             let ua = navigator.userAgent;
             fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
             return fwVersion;
-        } //return fwVersion = "6.72";
+            //return fwVersion = "6.72";
+        } 
         function user_agent() {
             let ua = navigator.userAgent,client = ua.substring(ua.indexOf("(") + 1, ua.indexOf(") Apple") - 5);
             return client;
@@ -68,8 +68,8 @@
         }
     </script>
     <script src="assets/js/functions.min.js"></script>
-    <script type="text/javascript" src="assets/js/jquery.js"></script>
-    <script type="text/javascript" src="assets/js/colorpicker.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/js/colorpicker.min.js"></script>
     <div class="overlay" id="cache-overlay">
         <div id="progress"></div>
     </div>
@@ -84,34 +84,45 @@
     </div>
     <div class="modal fade" id="paramsModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="modaltitle"></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="settings-modal-body">
+            <div class="row">
+                <div class="col-4">
                     <label id="modallanguage" class="small"></label>
-                    <div class="input-group w-100 mb-1">
+                    <div class="input-group mb-3">
                         <select class="custom-select" id="languageselection">
                             <option value="english" selected="selected">English (US)</option>
                             <option value="french">Français (France)‎</option>
                         </select>
                         <div class="input-group-append">
-                            <button type="button" class="modalBtn" id="submitlanguage"></button>
+                            <button id="submitlanguage" class="input-group-text"
+                                for="languageselection"></button>
                         </div>
                     </div>
+                </div>
+                <div class="col-4">
+                    <label id="modaljb" class="small"></label>
+                    <div class="input-group mb-3">
+                        <select class="custom-select" id="jbselection">
+                            <option value="Sleirsgoevy" selected="selected">Sleirsgoevy</option>
+                            <option value="Darkmoddervc">Darkmoddervc</option>
+                        </select>
+                        <div class="input-group-append">
+                            <button id="submitjb" class="input-group-text" for="jbselection"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
                     <label id="modalwave" class="small">Wave</label>
-                    <div class="input-group w-100 mb-1">
+                    <div class="input-group mb-3">
                         <select class="custom-select" id="waveselection">
                             <option value="on" selected="selected">ON</option>
                             <option value="off">OFF‎</option>
                         </select>
                         <div class="input-group-append">
-                            <button type="button" class="modalBtn" id="submitwave"></button>
+                            <button id="submitwave" class="input-group-text" for="waveselection"></button>
                         </div>
                     </div>
+                </div>
+            </div>
                     <div id="container-wave-custom"></div>
                     <div class="container">
                         <div class="row">
@@ -367,6 +378,9 @@
             </div>
         </div>
     </div>
+    <div id="loader-jb">
+        <div class="box boxload"></div>
+    </div>
     <hr>
     <footer >
         <div class="container-fluid" id="footer">
@@ -389,30 +403,25 @@
                             <label class="switch"><input id="bubble" type="checkbox"><span id="btn-switch-bubble"
                                     class="slider-red round"></span></label>
                         </div>
-                        <div class="col-2">
-                            <!--<div class="info-switch">Hen :</div><label class="switch"><input id="hen300"
-                                    type="checkbox"><span id="btn-switch-hen300"
-                                    class="slider-red round"></span></label>-->
+                        <div class="col-3 text-center">
+                            <div class="info-exploit">Exploit :</div>
+                            <div id="exploit" ></div>
                         </div>
-                        <div class="col-2">
-                            <!--<div class="info-switch">Mira :</div><label class="switch"><input id="noofficial"
-                                    type="checkbox"><span id="btn-switch-noofficial"
-                                    class="slider-red round"></span></label>-->
+                        <div class="col-3 text-center">
+                            <div class="info-jb">Jailbreak :</div>
+                            <div id="jailbreak" ></div>
                         </div>
-                        <div class="col-2">
-                            <!--<div class="info-switch">Fan :</div><label class="switch"><input id="fancontrol"
-                                    type="checkbox"><span id="btn-switch-fancontrol"
-                                    class="slider-red round"></span></label>-->
-                        </div>
+
                     </div>
                 </div>
-                <div class="col-2">
+                <div class="col-2 text-center">
+                    <div class="info-jb">Firmware :</div>
                     <div id="firmware"></div>
                 </div>
             </div>
         </div>
     </footer>
-    <div id="infoBubble" class="infobubble" style="border:1px solid #fff"></div>
+    <div id="infoBubble" class="infobubble"></div>
     <div id="container-wave"></div>
     <script src="assets/lang/ca.json"></script>
     <script>
@@ -420,7 +429,6 @@
         choiceLanguage();
         infoCache();
     </script>
-    <script src="assets/lang/ca.json"></script>
     <script src="assets/lang/server.json"></script>
     <script src="assets/lang/scrolling.json"></script>
     <script src="assets/lang/payload.json"></script>
@@ -428,7 +436,6 @@
     <script src="assets/js/style.min.js"></script>
     <script src="assets/bootstrap/jquery-3.3.1.min.js"></script>
     <script src="assets/bootstrap/bootstrap.min.js"></script>
-    <script src="https://kit.fontawesome.com/5cea6bf66d.js" crossorigin="anonymous"></script>
 </body>
 </html>
 <!--
