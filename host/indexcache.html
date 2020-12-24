@@ -84,49 +84,58 @@
     </div>
     <div class="modal fade" id="paramsModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-lg">
-            <div class="row">
-                <div class="col-4">
-                    <label id="modallanguage" class="small"></label>
-                    <div class="input-group mb-3">
-                        <select class="custom-select" id="languageselection">
-                            <option value="english" selected="selected">English (US)</option>
-                            <option value="french">Français (France)‎</option>
-                        </select>
-                        <div class="input-group-append">
-                            <button id="submitlanguage" class="input-group-text"
-                                for="languageselection"></button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modaltitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="settings-modal-body">
+                    <div class="row">
+                        <div class="col-4">
+                            <label id="modallanguage" class="small"></label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="languageselection">
+                                    <option value="english" selected="selected">English (US)</option>
+                                    <option value="french">Français (France)‎</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button id="submitlanguage" class="input-group-text"
+                                        for="languageselection"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label id="modaljb" class="small"></label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="jbselection">
+                                    <option value="Sleirsgoevy" selected="selected">Sleirsgoevy</option>
+                                    <option value="Darkmoddervc">Darkmoddervc</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button id="submitjb" class="input-group-text" for="jbselection"></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <label id="modalwave" class="small">Wave</label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="waveselection">
+                                    <option value="on" selected="selected">ON</option>
+                                    <option value="off">OFF‎</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button id="submitwave" class="input-group-text" for="waveselection"></button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-4">
-                    <label id="modaljb" class="small"></label>
-                    <div class="input-group mb-3">
-                        <select class="custom-select" id="jbselection">
-                            <option value="Sleirsgoevy" selected="selected">Sleirsgoevy</option>
-                            <option value="Darkmoddervc">Darkmoddervc</option>
-                        </select>
-                        <div class="input-group-append">
-                            <button id="submitjb" class="input-group-text" for="jbselection"></button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <label id="modalwave" class="small">Wave</label>
-                    <div class="input-group mb-3">
-                        <select class="custom-select" id="waveselection">
-                            <option value="on" selected="selected">ON</option>
-                            <option value="off">OFF‎</option>
-                        </select>
-                        <div class="input-group-append">
-                            <button id="submitwave" class="input-group-text" for="waveselection"></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+
                     <div id="container-wave-custom"></div>
                     <div class="container">
                         <div class="row">
-                            <button id="btn-wave0" class="modalBtn col-sm" >Wave1</button>
+                            <button id="btn-wave0" class="modalBtn col-sm">Wave1</button>
                             <div id="color-wave0" class="btn-color-show col-sm color-rad"></div>
                             <script>
                                 $("#btn-wave0").ColorPicker({
@@ -137,7 +146,7 @@
                                     onHide: function (colpkr) {
                                         $(colpkr).fadeOut(500);
                                         return false;
-                                        
+
                                     },
                                     onChange: function (hsb, hex, rgb) {
                                         $("#color-wave0").css("backgroundColor", hex);
@@ -311,6 +320,8 @@
                             <button id="btn-btn2-transparent" class="modalBtn col-sm"
                                 onclick="cookieBtn2Transparent()">Transparent</button>
                             <div id="btn2-cust-transparent" class="btn-color-show col-sm"></div>
+
+
                         </div>
                     </div>
                     <div class="container">
