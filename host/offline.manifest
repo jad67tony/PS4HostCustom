@@ -41,11 +41,9 @@ assets\images\Thumbs.db
 assets\img\info.png
 assets\js\colorpicker.min.js
 assets\js\eye.min.js
-assets\js\functions.js
 assets\js\functions.min.js
 assets\js\jquery.min.js
 assets\js\layout.min.js
-assets\js\style.js
 assets\js\style.min.js
 assets\js\utils.min.js
 assets\lang\ca.json
@@ -56,8 +54,8 @@ assets\lang\server.json
 background\image.jpg
 background\image2.jpg
 common\exploit.js
-jb\jb.js
-jb\jbmin.js
+jb\Darkmoddervc.min.js
+jb\Sleirsgoevy.min.js
 mirahen\c-code.js
 mirahen\miraForFix.js
 mirahen\Official.js
