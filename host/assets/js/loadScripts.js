@@ -13,6 +13,13 @@ function loadScripts() {
     element.src = '../../assets/js/' + scriptsHead[i] + '.js';
     document.getElementsByTagName("head")[0].appendChild(element);
   }
+  let element = document.createElement("script");
+  element.innerHTML = function print() { };
+  document.getElementsByTagName("head")[0].appendChild(element);
+  element.src = "../../common/exploit.js";
+  document.getElementsByTagName("head")[0].appendChild(element);
+
+
 
  
 }

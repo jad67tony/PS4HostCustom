@@ -31,7 +31,7 @@
       "French": [
         {
           "$id": "Mira_official",
-          "title": "Mira Project",
+          "title": "Projet Mira",
           "version": "1.0.0",
           "updated": "20/05/2020",
           "description": "Le projet Mira est un ensemble d'outils qui vous donne plus de puissance et de contrôle sur votre Playstation 4 jailbreakée.<br>Il est le résultat de tout le travail acharné de l'équipe OpenOrbis.",
@@ -49,7 +49,7 @@
         },
         {
           "$id": "Binloader",
-          "title": "Binloader",
+          "title": "Charge utile",
           "version": "1.0.0",
           "updated": "20/05/2020",
           "description": "Lanceur de charge utile au format .bin et .elf, nécessite PS4 Injector pour envoyer vos charges utile",
@@ -85,7 +85,7 @@
         },
         {
           "$id": "DumperKernel",
-          "title": "Kernel Dumper",
+          "title": "Dumper noyau",
           "version": "1.0.0",
           "updated": "10/07/2020",
           "description": "Vide le noyau de votre PS4 sur USB.",
@@ -94,7 +94,7 @@
         },
         {
           "$id": "KernelClock",
-          "title": "Kernel Clock",
+          "title": "Horloge noyau",
           "version": "1.0.0",
           "updated": "10/07/2020",
           "description": "Modifie l'horloge interne de la PS4, peut être utilisé pour réactiver les licences / fonctionnalités.",
@@ -103,7 +103,7 @@
         },
         {
           "$id": "BackupDTB",
-          "title": "BackupDTB",
+          "title": "SauvegardeDTB",
           "version": "1.0.0",
           "updated": "10/07/2020",
           "description": "Sauvegarde les bases de données, les licences et les données utilisateur de votre PS4.<br>Notez que cela peut ne pas être utile si vous devez le réactiver car vos clés peuvent changer.",
@@ -112,7 +112,7 @@
         },
         {
           "$id": "RestoreDTB",
-          "title": "RestoreDTB",
+          "title": "RestaureDTB",
           "version": "1.0.0",
           "updated": "10/07/2020",
           "description": "Restaure les données enregistrées dans la charge utile 'Sauvegarde'.",
@@ -121,7 +121,7 @@
         },
         {
           "$id": "PupDecrypt",
-          "title": "PUP Decrypt",
+          "title": "PUP Decryptage",
           "version": "1.0.0",
           "updated": "14/10/2020",
           "description": "",
@@ -139,7 +139,7 @@
         },
         {
           "$id": "Hystory",
-          "title": "History Blocker",
+          "title": "Historique Bloqueur",
           "version": "1.0.0",
           "updated": "10/07/2020",
           "description": "Empêche le navigateur de se souvenir et de revenir à la dernière page ouverte au démarrage. Exécutez à nouveau pour activer / désactiver.",
@@ -148,7 +148,7 @@
         },
         {
           "$id": "Browser",
-          "title": "Enable Browser",
+          "title": "Activé Navigateur",
           "version": "1.0.0",
           "updated": "10/07/2020",
           "description": "Active le navigateur de manière permanente sans avoir besoin de se connecter au PSN.",
@@ -157,7 +157,7 @@
         },
         {
           "$id": "AppCacheBackup",
-          "title": "Backup Host",
+          "title": "Sauvegarde Hôte",
           "version": "1.0.0",
           "updated": "12/10/2020",
           "description": "Sauvegarde sur disque dur interne ou externe de PS4Hostcs",
@@ -166,7 +166,7 @@
         },
         {
           "$id": "AppCacheRestore",
-          "title": "Restore Host",
+          "title": "Restaure Hôte",
           "version": "1.0.0",
           "updated": "12/10/2020",
           "description": "Restaure depuis une sauvegarde de PS4HostCS.",
@@ -184,7 +184,7 @@
         },
         {
           "$id": "Dumper",
-          "title": "Dumper",
+          "title": "Extraction App",
           "version": "1.0.0",
           "updated": "10/07/2020",
           "description": "Vide et déchiffre les applications sur USB. Peut être configuré avec 'dumper.cfg' sur la clé USB.",
@@ -202,7 +202,7 @@
         },
         {
           "$id": "Rifs",
-          "title": "RIF Renamer",
+          "title": "RIF Renomé",
           "version": "1.0.0",
           "updated": "10/07/2020",
           "description": "Renomme les 'faux' RIF en RIF 'libres' pour une meilleure compatibilité HEN.<br>Utilisez-le si vos PKG fonctionnent uniquement avec Mira + HEN.",
@@ -229,7 +229,7 @@
         },
         {
           "$id": "Enabler",
-          "title": "Disable Updates",
+          "title": "Désactivé Maj",
           "version": "1.0.0",
           "updated": "10/07/2020",
           "description": "Désactive les mises à jour du micrologiciel en créant des répertoires factices dans lesquels les mises à jour sont téléchargées.",
@@ -238,7 +238,7 @@
         },
         {
           "$id": "Desabler",
-          "title": "Enable Updates",
+          "title": "Activé Maj",
           "version": "1.0.0",
           "updated": "10/07/2020",
           "description": "Active les mises à jour en supprimant les répertoires factices créés par 'Désactiver les mises à jour'.",
