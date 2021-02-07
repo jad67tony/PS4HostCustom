@@ -1,0 +1,152 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <link rel="stylesheet" href="assets/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/default.css">
+    <script type="text/javascript" src="assets/js/checkSystem.js"></script>
+    <script type="text/javascript" src="assets/js/location.js"></script>
+    <script type="text/javascript" src="assets/js/cookies.js"></script>
+    <script type="text/javascript" src="assets/js/choiceLangue.js"></script>
+    <script type="text/javascript" src="assets/js/blockElem.js"></script>
+    <script type="text/javascript" src="assets/lang/ca.json"></script>
+    <script type="text/javascript" src="assets/bootstrap/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/bootstrap/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modaltitle"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="settings-modal-body">
+                    <div class="row">
+                        <div class="col-12">
+                            <label id="modallanguage" class="small"></label>
+                            <div class="input-group mb-3">
+                                <select class="custom-select" id="languageselection">
+                                    <option value="English" >English (US)</option>
+                                    <option value="French" selected="selected">Français (France)‎</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <button id="submitlanguage" class="input-group-text"
+                                        for="languageselection">Valider</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer"></div>
+            </div>
+        </div>
+    </div>
+    <div id="cache-overlay" class="overlay">
+        <div id="progress">
+            <div align="center" id="mybar"></div>
+        </div>
+    </div>
+    <div id="message" class="message"></div>
+    <script>
+        
+        const message = document.getElementById("message");
+        const overlay = document.getElementById("cache-overlay");
+        const progress = document.getElementById("progress");
+        const langueChange = document.getElementById("languageselection");
+
+        langueChange.addEventListener("change", function(){
+            if(window.infoCache)window.infoCache();
+            document.getElementById("submitlanguage").innerHTML = cach[0][$("#languageselection option:selected").val()].validate;
+        });
+
+        let cach = [];
+        window.infoCache = function () {
+            cac = [ca];
+            for (let i = 0; i < cac.length; i++) {
+                cach[i] = JSON.parse(cac[i]);
+            }
+        }
+
+        window.title = function () {
+            let title = document.createElement("TITLE");
+            title.innerHTML = cach[0][readCookie("language")].verification;
+            document.getElementsByTagName("head")[0].appendChild(title);
+        }
+
+        window.verification = function () {
+            if (checkFw() === "6.72" || checkFw() === "7.02") {
+
+                if (window.infoCache) window.infoCache();
+                let resultat = window.confirm(cach[0][readCookie("language")].alertCache);
+                if (resultat) {
+                    if(CACHED)CACHED();
+                }
+                else {
+                    if(REDIRECT)REDIRECT();
+                }
+            }
+            else {
+                if (window.infoCache) window.infoCache();
+                displayBlock(overlay);
+                setInnerHTML(
+                    message,
+                    '<div class="red">' +
+                    cach[0][readCookie("language")].badFw +
+                    checkFw() +
+                    cach[0][readCookie("language")].badFw2 +
+                    "</div>"
+                );
+                setTimeout(function () {
+                    setInnerHTML(
+                        message,
+                        '<div class="red">' +
+                        cach[0][readCookie("language")].desactivateHost +
+                        "</div>"
+                    );
+                }, 4e3);
+            }
+        }
+        if (getCookie("language") === null) {
+            $('#Modal').modal('toggle');
+            displayBlock(overlay);
+
+            $("#submitlanguage").on("click", function () {
+                $('#Modal').modal('toggle');
+                createCookie("language", $("#languageselection option:selected").val());
+                requestLangueServer();
+                if (window.infoCache) window.infoCache();
+                if (window.title) window.title();
+                if (window.verification) window.verification();
+            });
+        } else {
+            if (window.infoCache) window.infoCache();
+            if (window.title) window.title();
+            if (window.verification) window.verification();
+        }
+    </script>
+</body>
+
+</html>
+<!--
+Copyright (c) 2018-2020 Jad67tony, https://github.com/Jad67tony/PS4HostCustom
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->

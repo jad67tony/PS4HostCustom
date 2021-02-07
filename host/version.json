@@ -1,0 +1,20 @@
+{
+  "Infos": [
+    {
+      "French": [
+        {
+          "name": "PS4HostCustom",
+          "version": "V4.0.0",
+          "compagny": "Par Logic-68 Console System"
+        }
+      ],
+      "English": [
+        {
+          "name": "PS4HostCustom",
+          "version": "V4.0.0",
+          "compagny": "By Logic-68 Console System"
+        }
+      ]
+    }
+  ]
+}

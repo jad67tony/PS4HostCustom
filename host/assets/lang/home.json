@@ -1,0 +1,170 @@
+{
+  "Cache": [
+    {
+      "French": [
+        {
+          "errorDownload": "Une erreur est survenue pendant le téléchargement",
+          "noUpdate": "Aucune mise à jour disponible",
+          "newUpdate": "Une mise à jour est disponbile",
+          "validate": "Valider",
+          "alertCache": "Souhaitez vous mettre en cache?",
+          "desactivateHost": "PS4HostCS a été désactivé",
+          "verification": "Vérification logiciel système",
+          "goodfw": "Toutes nos félicitations! Nous avons détecté que votre PlayStation 4 fonctionne sous FW ",
+          "goodfw2": ", qui est compatible avec PS4HostCS",
+          "cachedsucces": "Mise en cache réussi",
+          "quitnav": "Fermez votre Navigateur, couper l'Internet, puis ouvrez a nouveau votre Navigateur",
+          "badFw": "Nous avons détecté que votre firmware est ",
+          "badFw2": " qui n'est pas compatible avec PS4HostCS"
+        }
+      ],
+      "English": [
+        {
+          "errorDownload": "An error occurred while downloading",
+          "noUpdate": "No update available",
+          "newUpdate": "An update is available",
+          "validate": "Validate",
+          "alertCache": "Would you like to cache?",
+          "desactivateHost": "PS4HostCS has been disabled",
+          "verification": "System software check",
+          "cachedsucces": "Caching Successful",
+          "quitnav": "Close your Browser, turn off the Internet, then open your Browser again",
+          "goodfw": "Congratulations! We have detected that your PlayStation 4 is running FW ",
+          "goodfw2": ", which is compatible with PS4HostCS",
+          "badFw": "We have detected that your firmware is ",
+          "badFw2": " which is not compatible with PS4HostCS"
+        }
+      ]
+    }
+  ],
+  "Home": [
+    {
+      "French": [
+        {
+          "webkitWait": "Exploit Webkit en cours patientez...",
+          "jb702failed": "Le Jailbreak à échoué, redémarrez...",
+          "dumperkernel": "Veuillez patientez jusqu'à la fin de l'extraction...",
+          "ftp": "Veuillez ne pas quitter le navigateur pour conserver la connexion FTP",
+          "endfix": "Le fix est maintenant bien actif",
+          "installfix": "Fix en cours d'installation",
+          "modaltitle": "Paramètres",
+          "modallangue": "Language",
+          "modaljb": "Exploit",
+          "modalwave": "Vagues",
+          "submit": "Soumettre",
+          "modalbackground": "Définir votre arrière plan URL",
+          "modalquit": "Quitter",
+          "bubble": "Actif",
+          "nobubble": "Non Actif",
+          "nocached": "Non actif",
+          "cached": "Actif",
+          "inject": "Injection de la charge utile",
+          "injectwell": "La charge utile a bien été injecter",
+          "ready_pl": "est maintenant bien activé",
+          "jbsuccess": "Votre PS4 est maintenant Jailbreak jusqu'au prochain redémarrage.",
+          "jbfailed": "Le jailbreak a échoué! Cliquez sur Fermer le Navigateur, et réessayez.",
+          "relaunchBinloader": "Relançez Binloader pour envoyer une autre charge utile",
+          "wait_pl": "En attente de charge utile",
+          "start_pl": "Démarrage de la la Charge utile",
+          "relaunch_for_mira": "Vous venez d'activer un autre Payload.Pour utiliser Binloader le Navigateur doit être Quitté par la touche PS d'abords.",
+          "quit_navigator": "Veuillez Quitter le navigateur entre ces deux opération pour éviter ce message a l'avenir.",
+          "wait_pl_binloader": "Utilisez PS4 Injector sur port 9021 pour injecter votre payload",
+          "alertSpoof": "Attention le spoof 8.00 a été détecté Actif",
+          "restartSystem": "Veuillez redémarrer le système pour le désactivé avant d'utiliser Mira Officiel",
+          "restartNavigator": "Veuillez redémarrer votre navigateur vour activer le spoof",
+          "wait_jb": "Jailbreak en cours...",
+          "miraNoOfficial": "Mira non Officiel",
+          "miraOfficial": "Mira Officiel",
+          "compagnie": "Par Logic-68CS",
+          "failed": "Echec"
+        }
+      ],
+      "English": [
+        {
+          "webkitWait": "Webkit exploit in progress wait ...",
+          "jb702failed": "Jailbreak failed, restart ...",
+          "dumperkernel": "Please wait until the extraction is complete ...",
+          "ftp": "Please do not exit the browser to keep the FTP connection",
+          "endfix": "The fix is ​​now active",
+          "installfix": "Fix being installed",
+          "modaltitle": "Settings",
+          "modallangue": "Language",
+          "submit": "Submit",
+          "modaljb": "Jailbreak",
+          "modalwave": "Wave",
+          "modalbackground": "Define your URL background",
+          "modalquit": "Close",
+          "bubble": "Active",
+          "nobubble": "Not Active",
+          "nocached": "No active",
+          "cached": "Active",
+          "inject": "Payload injection",
+          "injectwell": "The payload has been injected",
+          "ready_pl": "is now well activated",
+          "jbsuccess": "Your PS4 is now Jailbreak until the next restart.",
+          "jbfailed": "The jailbreak failed! Click Close Browser, and try again.",
+          "relaunchBinloader": "Relaunch Binloader to send another payload",
+          "wait_pl": "Waiting for payload",
+          "start_pl": "Starting the Payload",
+          "relaunch_for_mira": "You have just activated another Payload.To use Binloader the Navigator must be Exit with the PS key first.",
+          "quit_navigator": "Please exit the browser between these two operations to avoid this message in the future.",
+          "wait_pl_binloader": "Use PS4 Injector on port 9021 to inject your payload",
+          "alertSpoof": "Warning, the 8.00 spoof has been detected Active",
+          "restartSystem": "Please restart the system to disable it before using Mira Official",
+          "restartNavigator": "Please restart your browser to activate the spoof",
+          "wait_jb": "Jailbreak in progress ...",
+          "miraNoOfficial": "Mira no official",
+          "miraOfficial": "Mira Official",
+          "compagnie": "By Logic-68CS",
+          "failed": "Failed"
+        }
+      ]
+    }
+  ],
+  "Textslide": [
+    {
+      "French": [
+        {
+          "textslide1": "Accès aux paramètres",
+          "textslide2": "Customisation du Host",
+          "textslide3": "fond d'écran couleurs vagues",
+          "textslide4": "Click on (R1)"
+        }
+      ],
+      "english": [
+        {
+          "textslide1": "Access to parameters",
+          "textslide2": "Host customization",
+          "textslide3": "wallpaper colors wave",
+          "textslide4": "Click on (R1)"
+        }
+      ]
+    }
+  ],
+  "Modal": [
+    {
+      "French": [
+        {
+          "modaltitle": "Paramètres",
+          "modallangue": "Language",
+          "modaljb": "Exploit",
+          "modalwave": "Vagues",
+          "modalbackground": "Définir votre arrière plan URL",
+          "submit": "Soumettre",
+          "modalquit": "Quitter"
+        }
+      ],
+      "English": [
+        {
+          "modaltitle": "Settings",
+          "modallangue": "Language",
+          "modaljb": "Jailbreak",
+          "modalwave": "Wave",
+          "modalbackground": "Define your URL background",
+          "submit": "Submit",
+          "modalquit": "Close"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+<html manifest="offline.manifest">
+
+<head>
+    <link rel="stylesheet" href="assets/css/index.css">
+    <script type="text/javascript" src="assets/js/checkSystem.js"></script>
+    <script type="text/javascript" src="assets/js/location.js"></script>
+    <script type="text/javascript" src="assets/js/cookies.js"></script>
+    <script type="text/javascript" src="assets/js/choiceLangue.js"></script>
+    <script type="text/javascript" src="assets/js/blockElem.js"></script>
+    <script type="text/javascript" src="assets/lang/ca.json"></script>
+</head>
+
+<body>
+    <div id="cache-overlay" class="overlay">
+        <div id="progress">
+            <div align="center" id="mybar"></div>
+        </div>
+    </div>
+    <div id="status" class="debug"></div>
+    <div id="message" class="message"></div>
+    <script>
+        const message = document.getElementById("message");
+        const overlay = document.getElementById("cache-overlay");
+        const progress = document.getElementById("progress");
+        const sStatus = document.getElementById("status");
+        let cach = [];
+        let nb = 0;
+
+        window.infoCache = function () {
+            cac = [ca];
+            for (let i = 0; i < cac.length; i++) {
+                cach[i] = JSON.parse(cac[i]);
+            }
+        }
+
+        window.applicationCache.onchecking = function () {
+            displayBlock(overlay);
+        };
+
+        window.applicationCache.ondownloading = function () {
+            if (window.infoCache) window.infoCache();
+            displayBlock(overlay);
+            setInnerHTML(sStatus, cach[0][readCookie("language")].newUpdate);
+            setInnerHTML(message,
+                '<div class="green">' +
+                cach[0][readCookie("language")].goodfw +
+                checkFw() +
+                cach[0][readCookie("language")].goodfw2 +
+                "</div>");
+            setTimeout(function () {
+                displayNone(sStatus);
+                displayNone(message)
+            }, 2500);
+
+        };
+        window.applicationCache.onnoupdate = function () {
+            if (window.infoCache) window.infoCache();
+            setInnerHTML(sStatus, cach[0][readCookie("language")].noUpdate);
+            setTimeout(function () {
+                displayNone(overlay);
+                if(REDIRECT)REDIRECT();
+            }, 1000);
+        };
+
+        window.applicationCache.onerror = function () {
+            if (window.infoCache) window.infoCache();
+            setInnerHTML(sStatus, cach[0][readCookie("language")].errorDownload);
+            setTimeout(function () {
+                window.location.reload();
+            }, 1500);
+        };
+
+        window.applicationCache.onupdateready = function () {
+            if (window.infoCache) window.infoCache();
+            setInnerHTML(sStatus, cach[0][readCookie("language")].newUpdate);
+            window.applicationCache.update();
+            displayBlock(message);
+            setInnerHTML(message, '<div align="center" class="green">' + cach[0][readCookie("language")].cachedsucces + '</div>');
+            setTimeout(function () {
+                displayNone(message);
+                displayNone(overlay);
+                if(REDIRECT)REDIRECT();
+            }, 1500);
+        };
+        
+        window.applicationCache.onprogress = function (e) {
+            let mybar = document.getElementById("mybar");
+            nb = Math.round(100 * (e.loaded / e.total));
+            mybar.style.width = nb + "%";
+            nb == 0 ? (mybar.innerHTML = "") : (mybar.innerHTML = nb + "%");
+        };
+        window.applicationCache.oncached = function () {
+            if (window.infoCache) window.infoCache();
+            displayBlock(message);
+            setInnerHTML(message, '<div align="center" style="color:green">' + cach[0][readCookie("language")].cachedsucces + '</div>');
+            setTimeout(function () {
+                displayNone(overlay);
+                displayNone(message);
+                if(REDIRECT)REDIRECT();
+            }, 1500);
+        };
+
+    </script>
+
+</body>
+
+</html>
+<!--
+Copyright (c) 2018-2020 Jad67tony, https://github.com/Jad67tony/PS4HostCustom
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+-->

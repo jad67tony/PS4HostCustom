@@ -1,0 +1,86 @@
+<html>
+
+<head>
+    <title>Webkit 7.02</title>
+    <link rel="stylesheet" href="../../assets/css/webkit.css">
+    <script type="text/javascript" src="../../assets/js/cookies.js"></script>
+    <script type="text/javascript" src="../../assets/js/choiceLangue.js"></script>
+    <script type="text/javascript" src="../../assets/js/location.js"></script>
+    <script type="text/javascript" src="../../assets/js/functions.js"></script>
+    <script type="text/javascript" src="../../assets/lang/home.json"></script>
+</head>
+
+<body style="background-color:#00307f" class="superbg">
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+           setTimeout(function () {
+                go();
+            }, 150);
+        });
+        if (document.cookie.indexOf('kex=0') >= 0) {
+            if(REDIRECT)REDIRECT();
+        }
+        function print() { }
+      
+        let home = [];
+        datas = [data];
+        for (let e = 0; e < datas.length; e++) home[e] = JSON.parse(datas[e]);
+
+        function done() {
+            if (main_ret == 0 || main_ret == 179) {
+               // setTimeout(function () {
+                    read_ptr_at(0);
+               // }, 3000);
+            }
+            else alert(home[0][readCookie("language")].jb702failed);
+        }
+
+        window.midExploit = function () {
+            newScript(localStorage.getItem("exploit702"));
+        };
+
+        window.postExploit = function () {
+            document.cookie = 'kex=0';
+            setTimeout(function () {
+                eval.call(window, scriptCode);
+                done();
+            }, 100);
+
+        };
+        if (localStorage.getItem("backgroundurl") == '') {
+            null === localStorage.getItem("baColor")
+                ? (localStorage.setItem("baColor", "#00307f"),
+                    document.body.style.backgroundColor = localStorage.getItem("baColor"))
+                : document.body.style.backgroundColor = localStorage.getItem("baColor");
+        } else {
+            var bgImg = new Image();
+            bgImg.onload = function () {
+                document.body.style.backgroundImage = 'url(' + bgImg.src + ')';
+            }
+            bgImg.src = localStorage.getItem("backgroundurl");
+        }
+        
+    </script>
+
+    <center>
+        <div id="debug" class="debug"></div>
+        <button id="input1" onfocus="handle2()" class="button"></button>
+        <button id="input2" class="button"></button>
+        <button id="input3" onfocus="handle2()" class="button"></button><br>
+        <select id="select1">
+            <option value="value1">Value1</option>
+        </select>
+        <footer>
+            <div id="wait"></div>
+        </footer>
+    </center>
+    <script src="utils.js"></script>
+    <script src="int64.js"></script>
+    <script src="rop.js"></script>
+    <script src="userland.js"></script>
+    <script src="ps4.js"></script>
+
+    <script>document.getElementById("wait").innerHTML = home[0][readCookie("language")].webkitWait;</script>
+</body>
+
+</html>

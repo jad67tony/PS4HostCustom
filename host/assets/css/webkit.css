@@ -1,0 +1,37 @@
+
+.superbg {
+    left: 0;
+    min-height: 100%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -999;
+    -webkit-background-size: cover;
+    background-size: cover;
+    color: #fff;
+}
+
+.debug {
+    position: absolute;
+    top: 30%;
+    left: 46%;
+    transform: translate(-30%, -46%);
+}
+
+.button {
+    opacity: 0;
+}
+
+#select1 {
+    opacity: 0;
+    border-radius:50px;
+}
+
+footer {
+    position: fixed;
+    height: 50px;
+    width: 100%;
+    bottom: 10px;
+    margin: auto 0;
+    z-index: 999;
+}

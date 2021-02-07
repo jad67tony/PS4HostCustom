@@ -1,0 +1,506 @@
+{
+  "Scrolls": [
+    {
+      "French": [
+        {
+          "exploit": "Exploitations",
+          "system": "Système",
+          "nav": "Navigateur",
+          "app": "Applications",
+          "update": "Mise à jour",
+          "ps4trainer": "PS4 Trainer",
+          "pkgi": "PKGI"
+        }
+      ],
+      "English": [
+        {
+          "exploit": "Exploits",
+          "system": "System",
+          "nav": "Navigator",
+          "app": "Applications",
+          "update": "Update",
+          "ps4trainer": "PS4 Trainer",
+          "pkgi": "PKGI"
+        }
+      ]
+    }
+  ],
+
+  "Payloads": [
+    {
+      "French": [
+        {
+          "$id": "Mira_official",
+          "title": "Mira Project",
+          "version": "1.0.0",
+          "updated": "20/05/2020",
+          "description": "Le projet Mira est un ensemble d'outils qui vous donne plus de puissance et de contrôle sur votre Playstation 4 jailbreakée.<br>Il est le résultat de tout le travail acharné de l'équipe OpenOrbis.",
+          "author": "OpenOrbis",
+          "url": "https://github.com/OpenOrbis/mira-project"
+        },
+        {
+          "$id": "Mira_For_Fix",
+          "title": "Fix CE-31391-6",
+          "version": "1.0.0",
+          "updated": "15/12/2020",
+          "description": "Corrige l'erreur CE-31391-6 pour certaine console en Fw 6.72 nouvellement installée",
+          "author": "OpenOrbis",
+          "url": "https://github.com/OpenOrbis/mira-project"
+        },
+        {
+          "$id": "Binloader",
+          "title": "Binloader",
+          "version": "1.0.0",
+          "updated": "20/05/2020",
+          "description": "Lanceur de charge utile au format .bin et .elf, nécessite PS4 Injector pour envoyer vos charges utile",
+          "author": "OpenOrbis",
+          "url": "https://github.com/OpenOrbis/mira-project"
+        },
+        {
+          "$id": "Todex",
+          "title": "Todex",
+          "version": "1.0.0",
+          "updated": "28/07/2020",
+          "description": "Permet à la fois de débloquer des fonctions Debug / TestKit sur console Retail, mais aussi la possibilité de lire les jeux Fake PKG avec les trophées Debug,<br>installés par une conversion temporaire via un spoof mémoire envoyé à l'ID 0x82 (DEX)",
+          "author": "Zecoxao",
+          "url": "https://github.com/zecoxao/todex"
+        },
+        {
+          "$id": "Linux",
+          "title": "Linux",
+          "version": "1.0.0",
+          "updated": "1.0.0",
+          "description": "Une charge utile simple qui vous permet d'exécuter Linux sur votre PS4 6.72.Vous avez besoin d'une clé USB formatée FAT32 branchée sur n'importe quel port USB de PS4 avec les fichiers suivants dans le répertoire racine: bzImage et initramfs.cpio.gz.Ensuite, vous devrez envoyer la charge utile (PS4-Linux-Loader.bin) sur votre PS4. Pour cela utilisez Binloader et PS4Injector.",
+          "author": "Tihmstar",
+          "url": "https://github.com/tihmstar/ps4-linux-git"
+        },
+        {
+          "$id": "MiraTempReport",
+          "title": "MiraTempReport",
+          "version": "1.0.0",
+          "updated": "28/09/2020",
+          "description": "Vous indiquera par notification à intervals régulier la température réelle de votre PS4. Pour l'utiliser copier/coller MiraLoader.elf une première fois sur à la racine de votre clè USB et démarrer Miratempreport. Le fichier .elf sera déplacer sur votre disque interne automatiquement.",
+          "author": "LightningMods, Al Azif",
+          "url": "https://github.com/LightningMods<br>https://github.com/Al-Azif"
+        },
+        {
+          "$id": "DumperKernel",
+          "title": "Kernel Dumper",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Vide le noyau de votre PS4 sur USB.",
+          "author": "Eversion",
+          "url": "https://github.com/eversion/PS4-Kernel-Dumper"
+        },
+        {
+          "$id": "KernelClock",
+          "title": "Kernel Clock",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Modifie l'horloge interne de la PS4, peut être utilisé pour réactiver les licences / fonctionnalités.",
+          "author": "",
+          "url": ""
+        },
+        {
+          "$id": "BackupDTB",
+          "title": "BackupDTB",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Sauvegarde les bases de données, les licences et les données utilisateur de votre PS4.<br>Notez que cela peut ne pas être utile si vous devez le réactiver car vos clés peuvent changer.",
+          "author": "Stooged",
+          "url": "https://github.com/stooged/DB_SG_Backup-50X"
+        },
+        {
+          "$id": "RestoreDTB",
+          "title": "RestoreDTB",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Restaure les données enregistrées dans la charge utile 'Sauvegarde'.",
+          "author": "Stooged",
+          "url": "https://github.com/stooged/Db_Restore"
+        },
+        {
+          "$id": "PupDecrypt",
+          "title": "PUP Decrypt",
+          "version": "1.0.0",
+          "updated": "14/10/2020",
+          "description": "",
+          "author": "Al Azif",
+          "url": "https://github.com/Scene-Collective/ps4-pup-decrypt"
+        },
+        {
+          "$id": "Debug",
+          "title": "PS4 Debug",
+          "version": "1.0.0",
+          "updated": "28/12/2020",
+          "description": "Debuggeur PS4",
+          "author": "dmiller423",
+          "url": "https://github.com/dmiller423/ps4debug"
+        },
+        {
+          "$id": "Hystory",
+          "title": "History Blocker",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Empêche le navigateur de se souvenir et de revenir à la dernière page ouverte au démarrage. Exécutez à nouveau pour activer / désactiver.",
+          "author": "Stooged",
+          "url": "https://github.com/stooged/History-Blocker"
+        },
+        {
+          "$id": "Browser",
+          "title": "Enable Browser",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Active le navigateur de manière permanente sans avoir besoin de se connecter au PSN.",
+          "author": "",
+          "url": ""
+        },
+        {
+          "$id": "AppCacheBackup",
+          "title": "Backup Host",
+          "version": "1.0.0",
+          "updated": "12/10/2020",
+          "description": "Sauvegarde sur disque dur interne ou externe de PS4Hostcs",
+          "author": "Jad67tony",
+          "url": "https://github.com/Jad67tony"
+        },
+        {
+          "$id": "AppCacheRestore",
+          "title": "Restore Host",
+          "version": "1.0.0",
+          "updated": "12/10/2020",
+          "description": "Restaure depuis une sauvegarde de PS4HostCS.",
+          "author": "Jad67tony",
+          "url": "https://github.com/Jad67tony"
+        },
+        {
+          "$id": "Newhenvtx",
+          "title": "HEN VTX",
+          "version": "2.1.3",
+          "updated": "10/07/2020",
+          "description": "Fork Sistro",
+          "author": "Sistro",
+          "url": "https://github.com/SiSTR0/ps4-hen-vtx"
+        },
+        {
+          "$id": "Dumper",
+          "title": "Dumper",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Vide et déchiffre les applications sur USB. Peut être configuré avec 'dumper.cfg' sur la clé USB.",
+          "author": "Xvortex",
+          "url": "https://github.com/xvortex/ps4-dumper-vtx"
+        },
+        {
+          "$id": "App2usb",
+          "title": "App2USB",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Prise en charge non officielle des lecteurs externes pour les applications.<br>Lit 'app2usb.ini' à partir du lecteur externe pour les options.",
+          "author": "Stooged",
+          "url": "https://github.com/stooged/AppToUsb-50X"
+        },
+        {
+          "$id": "Rifs",
+          "title": "RIF Renamer",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Renomme les 'faux' RIF en RIF 'libres' pour une meilleure compatibilité HEN.<br>Utilisez-le si vos PKG fonctionnent uniquement avec Mira + HEN.",
+          "author": "Al Azif",
+          "url": "https://github.com/Scene-Collective/ps4-rif-renamer"
+        },
+        {
+          "$id": "WebRTE",
+          "title": "WebRTE",
+          "version": "",
+          "updated": "06/02/2020",
+          "description": "Application homebrew PKG qui activera et exécutera WebRTE (Runtime Environment) pour les développeurs de scènes PlayStation 4 et les personnes intéressées<br>Egalement nécessaire pour utiliser PS4Trainer",
+          "author": "TylerMods",
+          "url": "http://ps4trainer.com/"
+        },
+        {
+          "$id": "Fakeusb",
+          "title": "FakeUSB",
+          "version": "1.0.0",
+          "updated": "29/07/2020",
+          "description": "Pour installer des fichiers .pkg sans disposer d'une clé USB suffisamment grande",
+          "author": "Sleirsgoevy",
+          "url": "https://github.com/sleirsgoevy/ps4jb"
+        },
+        {
+          "$id": "Enabler",
+          "title": "Disable Updates",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Désactive les mises à jour du micrologiciel en créant des répertoires factices dans lesquels les mises à jour sont téléchargées.",
+          "author": "",
+          "url": ""
+        },
+        {
+          "$id": "Desabler",
+          "title": "Enable Updates",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Active les mises à jour en supprimant les répertoires factices créés par 'Désactiver les mises à jour'.",
+          "author": "",
+          "url": ""
+        },
+        {
+          "$id": "PS4Trainer",
+          "title": "PS4Trainer",
+          "version": "",
+          "updated": "06/02/2020",
+          "description": "1) Activez HEN et / ou Mira si nécessaire. <br> 2) Activez / Injectez la charge utile / l'exploit WebRTE. <br> 3) Visitez http://ps4trainer.com/Trainer et entrez votre adresse IP PS4. <br> 4 ) Lancez votre jeu sur la PS4. <br> 5) Cliquez sur votre jeu (avec le CUSA / version correspondante) dans le formateur. <br> 6) Si le message du formateur dit «Trainer attaché». Vous pouvez commencer à tricher.",
+          "author": "TylerMods",
+          "url": "http://ps4trainer.com/"
+        },
+        {
+          "$id": "Pkgi",
+          "title": "PkgI",
+          "version": "1.0.0",
+          "updated": "20/11/2020",
+          "description": "PKGi est un gestionnaire de forfaits WIP OpenSource pour télécharger Hombrew de PKG directement à partir de source.",
+          "author": "TheoryWrong",
+          "url": "https://github.com/theorywrong/PKGi"
+        }
+      ],
+
+      "English": [
+        {
+          "$id": "Mira_official",
+          "title": "Mira Project",
+          "version": "1.0.0",
+          "updated": "20/05/2020",
+          "description": "The Mira Project is a set of tools that grants you more power and control over your jailbroken Playstation 4.<br>It is the result of all the hard work by the OpenOrbis team.",
+          "author": "OpenOrbis",
+          "url": "https://github.com/OpenOrbis/mira-project"
+        },
+        {
+            "$id": "Mira_For_Fix",
+          "title": "Fix CE-31391-6",
+          "version": "1.0.0",
+          "updated": "15/12/2020",
+          "description": "Fix the error CE-31391-6 for some console in Fw 6.72 newly installed.",
+          "author": "OpenOrbis",
+          "url": "https://github.com/OpenOrbis/mira-project"
+        },
+        {
+          "$id": "Binloader",
+          "title": "Binloader",
+          "version": "1.0.0",
+          "updated": "20/05/2020",
+          "description": "Payload launcher in .bin and .elf format, requires PS4 Injector to send your payloads.",
+          "author": "OpenOrbis",
+          "url": "https://github.com/OpenOrbis/mira-project"
+        },
+        {
+          "$id": "Todex",
+          "title": "Todex",
+          "version": "1.0.0",
+          "updated": "28/07/2020",
+          "description": "Allows both to unlock Debug / TestKit functions on Retail console, but also the ability to play Fake PKG games with Debug trophies,<br>installed by a temporary conversion via a memory spoof sent to the ID 0x82 (DEX).",
+          "author": "Zecoxao",
+          "url": "https://github.com/zecoxao/todex"
+        },
+        {
+          "$id": "Linux",
+          "title": "Linux",
+          "version": "1.0.0",
+          "updated": "1.0.0",
+          "description": "A simple payload that let you run Linux on your 6.72 PS4.You need a FAT32 formatted USB stick plugged into any PS4 USB port with the following files in the root directory: bzImage and initramfs.cpio.gz Next you will need to send the payload (PS4-Linux-Loader. bin) on your PS4. For this use Binloader and PS4Injector.",
+          "author": "Tihmstar",
+          "url": "https://github.com/tihmstar/ps4-linux-git"
+        },
+        {
+          "$id": "MiraTempReport",
+          "title": "MiraTempReport",
+          "version": "1.0.0",
+          "updated": "28/09/2020",
+          "description": "Will notify you at regular intervals of the actual temperature of your PS4. To use it copy / paste MiraLoader.elf the first time on the root of your USB stick and start Miratempreport. The .elf file will be moved to your internal drive automatically.",
+          "author": "LightningMods, Al Azif",
+          "url": "https://github.com/LightningMods<br>https://github.com/Al-Azif"
+        },
+        {
+          "$id": "DumperKernel",
+          "title": "Kernel Dumper",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Dumps your PS4's kernel to USB.",
+          "author": "Eversion",
+          "url": "https://github.com/eversion/PS4-Kernel-Dumper"
+        },
+        {
+          "$id": "KernelClock",
+          "title": "Kernel Clock",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Changes the internal clock of the PS4, can be used to reactive licenses/features.",
+          "author": "",
+          "url": ""
+        },
+        {
+          "$id": "BackupDTB",
+          "title": "BackupDTB",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Backs up your PS4's databases, licenses, and user data.<br>Note this may not be useful if you have to reinitalize as your keys may change.",
+          "author": "Stooged",
+          "url": "https://github.com/stooged/DB_SG_Backup-50X"
+        },
+        {
+          "$id": "RestoreDTB",
+          "title": "RestoreDTB",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Restores the data saved in the 'Backup' payload.",
+          "author": "Stooged",
+          "url": "https://github.com/stooged/Db_Restore"
+        },
+        {
+          "$id": "PupDecrypt",
+          "title": "PUP Decrypt",
+          "version": "1.0.0",
+          "updated": "14/10/2020",
+          "description": "",
+          "author": "Al Azif",
+          "url": "https://github.com/Scene-Collective/ps4-pup-decrypt"
+        },
+        {
+          "$id": "Debug",
+          "title": "PS4 Debug",
+          "version": "1.0.0",
+          "updated": "28/12/2020",
+          "description": "",
+          "author": "dmiller423",
+          "url": "https://github.com/dmiller423/ps4debug"
+        },
+        {
+          "$id": "History",
+          "title": "History Blocker",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Blocks the browser from remembering and returning to the last opened page on start. Run again to enable/disable.",
+          "author": "Stooged",
+          "url": "https://github.com/stooged/History-Blocker"
+        },
+        {
+          "$id": "Browser",
+          "title": "Enable Browser",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Permenently activates the browser without needing to sign into PSN.",
+          "author": "",
+          "url": ""
+        },
+        {
+          "$id": "AppCacheBackup",
+          "title": "Backup Host",
+          "version": "1.0.0",
+          "updated": "12/10/2020",
+          "description": "PS4Hostcs internal hard drive backup.",
+          "author": "Jad67tony",
+          "url": "https://github.com/Jad67tony"
+        },
+        {
+          "$id": "AppCacheRestore",
+          "title": "Restore Host",
+          "version": "1.0.0",
+          "updated": "12/10/2020",
+          "description": "Restores a backup of PS4HostCS from.",
+          "author": "Jad67tony",
+          "url": "https://github.com/Jad67tony"
+        },
+        {
+          "$id": "Newhenvtx",
+          "title": "HEN VTX",
+          "version": "2.1.3",
+          "updated": "10/07/2020",
+          "description": "",
+          "author": "Sistro",
+          "url": "https://github.com/SiSTR0/ps4-hen-vtx"
+        },
+        {
+          "$id": "Dumper",
+          "title": "Dumper",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Dumps and decrypts applications to USB. Can be configured with 'dumper.cfg' on the USB drive.",
+          "author": "Xvortex",
+          "url": "https://github.com/xvortex/ps4-dumper-vtx"
+        },
+        {
+          "$id": "App2usb",
+          "title": "App2USB",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Unofficial external drive support for applications.<br>Reads `app2usb.ini` from the external drive for options.",
+          "author": "Stooged",
+          "url": "https://github.com/stooged/AppToUsb-50X"
+        },
+        {
+          "$id": "Rifs",
+          "title": "RIF Renamer",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Renames 'fake' RIFs to 'free' RIFs for better HEN compatibility.<br>Use this if your PKGs only work with Mira+HEN.",
+          "author": "Al Azif",
+          "url": "https://github.com/Scene-Collective/ps4-rif-renamer"
+        },
+        {
+          "$id": "WebRTE",
+          "title": "WebRTE",
+          "version": "",
+          "updated": "06/02/2020",
+          "description": "PKG homebrew application that will activate and run WebRTE (Runtime Environment) for PlayStation 4 scene developers and those interested.<br> Also required to use PS4Trainer",
+          "author": "TylerMods",
+          "url": "http://ps4trainer.com/"
+        },
+        {
+          "$id": "Fakeusb",
+          "title": "FakeUSB",
+          "version": "1.0.0",
+          "updated": "29/07/2020",
+          "description": "To install .pkg files without having a sufficiently large USB key",
+          "author": "Sleirsgoevy",
+          "url": "https://github.com/sleirsgoevy/ps4jb"
+        },
+        {
+          "$id": "Enabler",
+          "title": "Enabler blocker",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Disables firmware updates by creating dummy directories where updates are be downloaded.",
+          "author": "",
+          "url": ""
+        },
+        {
+          "$id": "Desabler",
+          "title": "Desabler blocker",
+          "version": "1.0.0",
+          "updated": "10/07/2020",
+          "description": "Enables updates by deleting the dummy directories created by 'Disable Updates'.",
+          "author": "",
+          "url": ""
+        },
+        {
+          "$id": "PS4Trainer",
+          "title": "PS4Trainer",
+          "version": "",
+          "updated": "06/02/2020",
+          "description": "1) Enable HEN and/or Mira if necessary.<br>2) Enable/Inject the WebRTE payload/exploit.<br>3) Visit http://ps4trainer.com/Trainer and enter your PS4 IP.<br>4) Launch your game on the PS4.<br>5) Click your game (with the matching CUSA/version) in the trainer.<br>6) If the trainer message says 'Trainer Attached.' you can start cheating.",
+          "author": "TylerMods",
+          "url": "http://ps4trainer.com/"
+        },
+        {
+          "$id": "Pkgi",
+          "title": "PkgI",
+          "version": "1.0.0",
+          "updated": "20/11/2020",
+          "description": "PKGi is a WIP OpenSource Packages Manager for Download PKG's Hombrew directly from Source.",
+          "author": "TheoryWrong",
+          "url": "https://github.com/theorywrong/PKGi"
+        }
+      ]
+    }
+  ]
+}
