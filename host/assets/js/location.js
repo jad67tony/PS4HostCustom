@@ -18,10 +18,10 @@ function CACHED() {
 function EXPLOITWEBKIT702() {
   return (document.location.href = "../../webkit702/index.html");
 }
-function PAYLOAD(x) {
+function PL(x) {
   return "../../payloads/PL_" + plLangue() + "/" + x + ".js";
 }
-function PAYLOAD702(x) {
+function PL702(x) {
   return "../../payloads/PL_702_" + plLangue() + "/" + x + ".js";
 }
 function JB(x) {

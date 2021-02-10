@@ -9,7 +9,7 @@ function loadScriptsJS(){
     
     "showWave",*/
     "finished",
-    "add-rmScript",
+    
     "loadExploits",
     "bubbleInfos",
     "selectorSwitch",

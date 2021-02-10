@@ -17,4 +17,5 @@ let checkFw = function () {
     alert("vous n'êtes pas sur un système PS4 les fonctions ont été désactivé");
     document.location.href = 'index.html'
   }
+  
 })();

@@ -1,33 +1,35 @@
-function reception() {
+function inject_payload() {
   const e = document.getElementById("cs-loader");
-  setInnerText(message, home[0][readCookie("language")].injectwell),
-    displayBlock(e),
-    setTimeout(function () {
-      setInnerText(message, home[0][readCookie("language")].start_pl),
+
+  fetch(HOME(), { method: "GET" })
+    .then(function (response) {
+      return response.json();
+    })
+    .then(function (data) {
+      setInnerText(message, data["Home"][0][readCookie("language")][0].inject),
+        displayBlock(e),
         setTimeout(function () {
-          removeScript(), displayNone(e), setInnerText(message, "");
+          setInnerText(message,  data["Home"][0][readCookie("language")][0].injectwell),
+            setTimeout(function () {
+              removeScript(), displayNone(e), setInnerText(message, "");
+            }, 3e3);
         }, 3e3);
-    }, 3e3);
+    });
 }
 
 function finished() {
-  console.log(sessionStorage.getItem("exploit"));
   fetch(PAYLOAD(), { method: "GET" })
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      /*const e = document.getElementById("jailbreak"),
+      const e = document.getElementById("jailbreak"),
         t = document.getElementById("cs-loader"),
         loader = document.getElementById("loader-jb");
 
-
       if (sessionStorage.getItem("jb702") == "ok") exploit = "jb702";
 
-
-
-
-      switch (exploit) {
+      switch (sessionStorage.getItem("exploit")) {
         case "jailbreak":
           179 == main_ret || 0 == main_ret
             ? (displayJb(), (exploit = null))
@@ -85,6 +87,6 @@ function finished() {
 
         default:
           reception(exploit);
-      }*/
+      }
     });
 }

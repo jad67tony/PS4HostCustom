@@ -25,7 +25,6 @@
       ]
     }
   ],
-
   "Payloads": [
     {
       "French": [
@@ -276,7 +275,7 @@
           "url": "https://github.com/OpenOrbis/mira-project"
         },
         {
-            "$id": "Mira_For_Fix",
+          "$id": "Mira_For_Fix",
           "title": "Fix CE-31391-6",
           "version": "1.0.0",
           "updated": "15/12/2020",
